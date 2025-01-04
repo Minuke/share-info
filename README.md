@@ -1,59 +1,25 @@
-# ShareInfo
+# Compartir información entre componenentes en Angular
+Este proyecto demuestra cómo compartir información entre componentes en Angular utilizando dos enfoques diferentes: **Observables** y **Signals**.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+## Formas de compartir información entre componentes
+Existen varias formas de compartir información entre componentes en Angular:
 
-## Development server
+**1. Inputs/Outputs**
+- **Descripción**: se utilizan para pasar datos de un componente padre a un hijo y viceversa.
+- **Problema**: cuando es necesario compartir datos entre componentes lejanos en la jerarquía, es necesario encadenar múltiples inputs y outputs, lo que complica el mantenimiento.
 
-To start a local development server, run:
+**2. Servicios (con Propiedades y Métodos)**
+- **Descripción**: un servicio contiene una propiedad y dos métodos (getter y setter) para compartir datos.
+- **Problema**: los componentes no tienen una forma reactiva de detectar cambios en la información.
 
-```bash
-ng serve
-```
+**3. Observables (RxJS)**
+- **Descripción**: los **Observables** proporcionan una forma reactiva de compartir información entre componentes.
+- **Ventaja**: Los cambios en los datos se reflejan automáticamente en los componentes suscritos.
+- **Implementación**: Se utiliza un `BehaviorSubject` para emitir cambios y el `AsyncPipe` para la suscripción automática.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**4. Signals (Angular Signals)**
+- **Descripción**: los **Signals** son una alternativa más moderna y reactiva a los Observables.
+- **Ventaja**: no requieren suscripción ni pipes adicionales, ya que actualizan automáticamente la vista al cambiar los datos.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Conclusión
+Este proyecto demuestra cómo compartir información entre componentes usando **Observables** y **Signals**. Los **Observables** siguen siendo útiles para manejar flujos de datos complejos, pero los **Signals** ofrecen una sintaxis más simple y reactiva, eliminando la necesidad de pipes adicionales para la suscripción.
