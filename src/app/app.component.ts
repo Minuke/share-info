@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { ObservableInformationComponent } from './share/components/observable-information/observable-information.component';
+import { SignalInformationComponent } from './share/components/signal-information/signal-information.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ObservableInformationComponent, SignalInformationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
